@@ -12,6 +12,13 @@ class TestSum():
     
     def test_large(self):
         assert checkout_solution.checkout("AAAAAAAAAAAABBBBCD") == 725
+    
+    def test_invalid(self):
+        assert checkout_solution.checkout("aaa") == -1
         
+    def test_invalidTwo(self):
+        assert checkout_solution.checkout("AAAaaa") == -1
+        
+
 
 

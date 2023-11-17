@@ -13,6 +13,8 @@ def checkout(skus: str) -> int:
     res = 0
     n = len(skus)
     for x in range(n):
+        if not skus[x] in prices:
+            return -1
         shoppingFreq[skus[x]]+=1
     
     # iterate through all the items
@@ -32,3 +34,4 @@ def checkout(skus: str) -> int:
             res+= totalStockLeft*prices[item]
         
     return res
+
