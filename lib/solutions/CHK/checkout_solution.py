@@ -36,11 +36,11 @@ def checkout(skus: str) -> int:
         
     free = shoppingFreq.get('N',0)//2
     if 'M' in shoppingFreq:
-        shoppingFreq['M'] = max(0, shoppingFreq['B'] - free)
+        shoppingFreq['M'] = max(0, shoppingFreq['M'] - free)
     
     free = shoppingFreq.get('R',0)//2
     if 'Q' in shoppingFreq:
-        shoppingFreq['Q'] = max(0, shoppingFreq['B'] - free)
+        shoppingFreq['Q'] = max(0, shoppingFreq['Q'] - free)
     
     # iterate through all the items
     for item, freq in shoppingFreq.items():
@@ -54,8 +54,3 @@ def checkout(skus: str) -> int:
         
                 
     return res
-
-
-
-
-
