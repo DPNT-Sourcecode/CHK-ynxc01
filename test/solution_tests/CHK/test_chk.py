@@ -31,5 +31,3 @@ class TestSum():
     def test_checkOfferE3(self):
         assert checkout_solution.checkout("EEEEBB") == 160
         
-
-

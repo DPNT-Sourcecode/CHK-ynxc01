@@ -39,6 +39,3 @@ def checkout(skus: str) -> int:
     res = applyDisc('E','B',res,shoppingFreq)
                 
     return res
-
-
-
