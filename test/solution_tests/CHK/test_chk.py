@@ -18,4 +18,8 @@ class TestSum():
         
     def test_invalidTwo(self):
         assert checkout_solution.checkout("AAAaaa") == -1
+    
+    def test_checkOfferE(self):
+        assert checkout_solution.checkout("EEEE") == 220
         
+
