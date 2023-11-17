@@ -13,5 +13,3 @@ class TestSum():
     def test_sumFour(self):
         assert sum_solution.compute(-11,-20) == -31
         
-
-
