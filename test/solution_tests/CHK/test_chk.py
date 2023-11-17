@@ -23,7 +23,11 @@ class TestSum():
         assert checkout_solution.checkout("AAAaaa") == -1
     
     def test_checkOfferE(self):
-        assert checkout_solution.checkout("EEEE") == 220
+        assert checkout_solution.checkout("EEEE") == 160
+    
+    def test_checkOfferE2(self):
+        assert checkout_solution.checkout("EEEEBB") == 205
         
+
 
 
