@@ -28,8 +28,8 @@ def checkout(skus: str) -> int:
         else:
             deal = offers[item]
             # calculate how many offers can be fulfilled
+            keys = list(deal.keys())
             if len(deal) > 1:
-                keys = deal.keys()
                 keys.sort()
                 rp = len(keys)-1
                 flag = True
@@ -44,13 +44,11 @@ def checkout(skus: str) -> int:
                 
                 if freq > 0:
                     res += prices[item] * freq
-                    
-                    
             else:
-                totalOfferFulfilled = freq// q
-                totalStockLeft = freq % q
+                totalOfferFulfilled = freq// keys[0]
+                totalStockLeft = freq % keys[0]
                 
-                res+= totalOfferFulfilled*deal
+                res+= totalOfferFulfilled*deal[keys[0]]
                 res+= totalStockLeft*prices[item]
             
         if item in free_items:
@@ -59,4 +57,5 @@ def checkout(skus: str) -> int:
             res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
