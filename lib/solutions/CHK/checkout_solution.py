@@ -6,14 +6,8 @@ from collections import defaultdict
 prices = {"A":50,"B":30,"C":20,"D":15,"E":40}
 offers = {"A":[(5,200),(3,130)],"B":[(2,45)], "E":[(2,80)]}
 
-def applyDisc(x, y, res, shoppingFreq) -> int:
-    if x in shoppingFreq and shoppingFreq[x] >=2 and y in shoppingFreq:
-        free = shoppingFreq[x] // 2
-        if shoppingFreq[y] >= free:
-            res -= free*prices[y]
-        else:
-            res -= shoppingFreq[y]* prices[y]
-    return res
+
+
 def checkout(skus: str) -> int:
     res = 0
     n = len(skus)
@@ -25,6 +19,10 @@ def checkout(skus: str) -> int:
         else:
             return -1
     
+    free = shoppingFreq['E']//2
+    if 'B' in shoppingFreq:
+        shoppingFreq['B'] = max(0, shoppingFreq['B'] - free)
+    
     # iterate through all the items
     for item, freq in shoppingFreq.items():
         
@@ -35,7 +33,6 @@ def checkout(skus: str) -> int:
                     freq -= count
         res += freq * prices[item]
         
-        
-    res = applyDisc('E','B',res,shoppingFreq)
                 
     return res
+
