@@ -49,7 +49,7 @@ def checkout(skus: str) -> int:
                 res += price
                 freq -= count
         elif item == 'U':
-            count, price = 4, 3*prices['U']
+            count, price = 3, 2*prices['U']
             while freq >= count:
                 res += price
                 freq -= count
@@ -62,4 +62,5 @@ def checkout(skus: str) -> int:
         
                 
     return res
+
 
