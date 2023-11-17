@@ -4,8 +4,8 @@
 # skus = unicode string
 from collections import defaultdict
 prices = {"A":50,"B":30,"C":20,"D":15,"E":40}
-offers = {"A":(3,130),"B":(2,45),"E":(2,40)}
-free_items = {"E":("B",1)}
+offers = {"A":(3,130),"B":(2,45)}
+free_items = {"E":(2,"B",1)}
 def checkout(skus: str) -> int:
     if type(skus) is not str:
         return -1
@@ -26,7 +26,7 @@ def checkout(skus: str) -> int:
         if not item in offers:
             res += prices[item]*freq
         else:
-            q, deal = offers[item]
+            oq, q, deal = offers[item]
             # calculate how many offers can be fulfilled
             totalOfferFulfilled = freq// q
             totalStockLeft = freq % q
@@ -34,11 +34,13 @@ def checkout(skus: str) -> int:
             res+= totalOfferFulfilled*deal
             res+= totalStockLeft*prices[item]
             
-            if item in free_items:
-                other, q2 = free_items[item]
-                res += totalOfferFulfilled * (prices[other]*q2)
+        if item in free_items:
+            other, q, q2 = free_items[item]
+            totalOfferFulfilled = freq// q
+            res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
 
 
