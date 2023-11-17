@@ -57,7 +57,3 @@ def checkout(skus: str) -> int:
         #     res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
-
-
-
-

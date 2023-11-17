@@ -28,7 +28,3 @@ class TestSum():
     def test_checkOfferE2(self):
         assert checkout_solution.checkout("EEEEBB") == 160
         
-
-
-
-
