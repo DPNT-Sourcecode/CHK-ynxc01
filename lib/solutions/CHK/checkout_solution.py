@@ -41,19 +41,16 @@ def checkout(skus: str) -> int:
     if 'Q' in shoppingFreq:
         shoppingFreq['Q'] = max(0, shoppingFreq['Q'] - free)
     
+    for x in ["F","U"]:
+        if x in shoppingFreq:
+            count = 3 if x == 'F' else 4
+            price = 2*prices[x]
+            while shoppingFreq[x] >= count:
+                res += price
+                shoppingFreq[x] -= count
     # iterate through all the items
     for item, freq in shoppingFreq.items():
-        if item == 'F':
-            count, price = 3, 2*prices['F']
-            while freq >= count:
-                res += price
-                freq -= count
-        elif item == 'U':
-            count, price = 3, 2*prices['U']
-            while freq >= count:
-                res += price
-                freq -= count
-        elif item in offers:
+        if item in offers:
             for count, price in sorted(offers[item], reverse=True):
                 while freq >= count:
                     res += price
@@ -62,6 +59,3 @@ def checkout(skus: str) -> int:
         
                 
     return res
-
-
-
