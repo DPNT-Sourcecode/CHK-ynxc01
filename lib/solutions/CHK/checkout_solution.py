@@ -16,7 +16,6 @@ offers = {
     'P': [(5, 200)],
     'Q': [(3, 80)],
     'V': [(3, 130), (2, 90)],
-    'U': [(3, 80)],
 }
 
 def checkout(skus: str) -> int:
@@ -44,8 +43,17 @@ def checkout(skus: str) -> int:
     
     # iterate through all the items
     for item, freq in shoppingFreq.items():
-        
-        if item in offers:
+        if item == 'F':
+            count, price = 3, 2*prices['F']
+            while freq >= count:
+                res += price
+                freq -= count
+        elif item == 'U':
+            count, price = 4, 3*prices['U']
+            while freq >= count:
+                res += price
+                freq -= count
+        elif item in offers:
             for count, price in sorted(offers[item], reverse=True):
                 while freq >= count:
                     res += price
@@ -54,3 +62,4 @@ def checkout(skus: str) -> int:
         
                 
     return res
+
