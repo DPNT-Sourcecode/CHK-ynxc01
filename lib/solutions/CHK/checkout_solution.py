@@ -4,7 +4,7 @@
 # skus = unicode string
 from collections import defaultdict
 prices = {"A":50,"B":30,"C":20,"D":15,"E":40}
-offers = {"A":(3,130),"B":(2,45)}
+offers = {"A":[(5,200),(3,130)],"B":(2,45)}
 free_items = {"E":(2,"B",1)}
 def checkout(skus: str) -> int:
     if type(skus) is not str:
@@ -35,11 +35,12 @@ def checkout(skus: str) -> int:
             res+= totalStockLeft*prices[item]
             
         if item in free_items:
-            q, other , q2 = free_items[item]
+            q, other, q2 = free_items[item]
             totalOfferFulfilled = freq// q
             res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
 
 
