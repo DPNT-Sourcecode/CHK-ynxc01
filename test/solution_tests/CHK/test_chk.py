@@ -22,4 +22,3 @@ class TestSum():
     def test_checkOfferE(self):
         assert checkout_solution.checkout("EEEE") == 220
         
-
