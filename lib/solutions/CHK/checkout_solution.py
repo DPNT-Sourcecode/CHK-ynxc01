@@ -3,8 +3,8 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 from collections import defaultdict
-prices = {"A":50,"B":30,"C":20,"D":15,"E":40}
-offers = {"A":[(5,200),(3,130)],"B":[(2,45)], "E":[(2,80)]}
+prices = {"A":50,"B":30,"C":20,"D":15,"E":40,"F":10}
+offers = {"A":[(5,200),(3,130)],"B":[(2,45)], "E":[(2,80)], "F":[(2,20)]}
 
 
 
@@ -23,6 +23,10 @@ def checkout(skus: str) -> int:
     if 'B' in shoppingFreq:
         shoppingFreq['B'] = max(0, shoppingFreq['B'] - free)
     
+    free = shoppingFreq['F']//2
+    if 'F' in shoppingFreq:
+        shoppingFreq['F'] = max(0, shoppingFreq['F'] - free)
+    
     # iterate through all the items
     for item, freq in shoppingFreq.items():
         
@@ -35,4 +39,5 @@ def checkout(skus: str) -> int:
         
                 
     return res
+
 
