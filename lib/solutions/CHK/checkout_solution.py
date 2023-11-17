@@ -26,7 +26,7 @@ def checkout(skus: str) -> int:
         if not item in offers:
             res += prices[item]*freq
         else:
-            oq, q, deal = offers[item]
+            q, deal = offers[item]
             # calculate how many offers can be fulfilled
             totalOfferFulfilled = freq// q
             totalStockLeft = freq % q
@@ -35,11 +35,12 @@ def checkout(skus: str) -> int:
             res+= totalStockLeft*prices[item]
             
         if item in free_items:
-            other, q, q2 = free_items[item]
+            q, other , q2 = free_items[item]
             totalOfferFulfilled = freq// q
             res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
 
 
