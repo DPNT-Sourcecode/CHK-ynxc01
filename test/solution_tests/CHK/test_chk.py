@@ -33,6 +33,12 @@ class TestSum():
     
     def test_checkR4(self):
         assert checkout_solution.checkout("AAABBBCCCDDDEEEFFFHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWXXXYZZZ") == 2635
+    
+    def test_checkR4(self):
+        assert checkout_solution.checkout("UUU") == 120
+        assert checkout_solution.checkout("FFF") == 20
+        assert checkout_solution.checkout("FFFF") == 30
         
         
         
+
