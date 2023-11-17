@@ -7,6 +7,9 @@ class TestSum():
     def test_offer(self):
         assert checkout_solution.checkout("AAA") == 130
     
+    def test_two(self):
+        assert checkout_solution.checkout("AAAAA") == 230
+    
     def test_offer_incomplete(self):
         assert checkout_solution.checkout("AAAA") == 180
     
@@ -22,3 +25,4 @@ class TestSum():
     def test_checkOfferE(self):
         assert checkout_solution.checkout("EEEE") == 220
         
+
