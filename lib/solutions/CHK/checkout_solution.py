@@ -34,5 +34,3 @@ def checkout(skus: str) -> int:
             res+= totalStockLeft*prices[item]
         
     return res
-
-

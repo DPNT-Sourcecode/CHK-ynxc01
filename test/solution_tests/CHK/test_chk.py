@@ -19,7 +19,3 @@ class TestSum():
     def test_invalidTwo(self):
         assert checkout_solution.checkout("AAAaaa") == -1
         
-
-
-
-
