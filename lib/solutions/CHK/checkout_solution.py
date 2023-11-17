@@ -51,12 +51,13 @@ def checkout(skus: str) -> int:
                 res+= totalOfferFulfilled*deal[keys[0]]
                 res+= totalStockLeft*prices[item]
             
-        if item in free_items:
-            q, other, q2 = free_items[item]
-            totalOfferFulfilled = freq// q
-            res += totalOfferFulfilled * (prices[other]*q2)
+        # if item in free_items:
+        #     q, other, q2 = free_items[item]
+        #     totalOfferFulfilled = freq// q
+        #     res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
 
 
