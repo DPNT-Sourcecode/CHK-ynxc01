@@ -35,7 +35,7 @@ def checkout(skus: str) -> int:
                 flag = True
                 
                 while freq > 0 and rp >= 0:
-                    if keys[rp] >= freq:
+                    if freq >= keys[rp]:
                         freq -= keys[rp]
                         # calc the fulfillment
                         res += deal[keys[rp]]
@@ -57,5 +57,6 @@ def checkout(skus: str) -> int:
             res += totalOfferFulfilled * (prices[other]*q2)
         
     return res
+
 
 
